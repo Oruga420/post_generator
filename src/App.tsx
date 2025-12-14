@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ApiKeyInput } from './components/ApiKeyInput';
 import { NewsFinder } from './components/NewsFinder';
 import { ContentApprover } from './components/ContentApprover';
@@ -42,7 +42,9 @@ function App() {
       
       // 3. Generate Image (Parallel or immediately after)
       // We do this here so user sees "Painting..." in the Review screen
-      generateImage(creative.imagePrompt, newsItem);
+      if (creative) {
+        generateImage(creative.imagePrompt);
+      }
 
     } catch (e) {
       alert("Analysis failed: " + (e as Error).message);
@@ -51,7 +53,7 @@ function App() {
     }
   };
 
-  const generateImage = async (prompt: string, currentItem: any) => {
+  const generateImage = async (prompt: string) => {
     if (!replicateService) return;
     try {
       const imageUrl = await replicateService.generateImage(prompt, state.replicateModel);
@@ -85,7 +87,7 @@ function App() {
             generatedContent: { ...prev.newsItem!.generatedContent!, imageUrl: undefined }
         }
     }));
-    generateImage(prompt, state.newsItem);
+    generateImage(prompt);
   };
 
   const handleApprove = async () => {

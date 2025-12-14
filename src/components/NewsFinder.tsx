@@ -30,7 +30,6 @@ export const NewsFinder: React.FC<Props> = ({ onAnalyze, isLoading }) => {
     if (!text && !file) return;
 
     const type = getInputType(text, file);
-    let fileInput;
 
     if (file) {
       // Convert to base64

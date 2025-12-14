@@ -1,5 +1,3 @@
-import { REPLICATE_MODELS } from "../types";
-
 export class ReplicateService {
     private apiKey: string;
 

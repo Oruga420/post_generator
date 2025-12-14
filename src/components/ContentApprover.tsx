@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NewsItem } from '../types';
-import { RefreshCcw, Check, Edit2 } from 'lucide-react';
+import { RefreshCcw, Check } from 'lucide-react';
 
 interface Props {
   newsItem: NewsItem;

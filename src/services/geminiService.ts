@@ -24,10 +24,8 @@ The image must be created in a vivid Abstract Expressionist style.
 
 export class GeminiService {
   private genAI: GoogleGenerativeAI;
-  private apiKey: string;
 
   constructor(apiKey: string) {
-    this.apiKey = apiKey;
     this.genAI = new GoogleGenerativeAI(apiKey);
   }
 
@@ -107,7 +105,7 @@ export class GeminiService {
     };
   }
 
-  async generateVideo(prompt: string, imageUrl?: string): Promise<string> {
+  async generateVideo(prompt: string, _imageUrl?: string): Promise<string> {
       // In a real scenario, this uses the Veo API via Vertex AI or Gemini Advanced labs.
       // Since Veo public API is limited/waitlisted, we might simulate or try the labs endpoint if available.
       // For this user request, I will assume we call a hypothetical endpoint or standard video generation.
